@@ -12,8 +12,11 @@
 
 *Solve all your mailing headaches by integrating with our email sending API. Quickly connect your software to our infrastructure to reliably send and deliver your emails. Our tools will allow you to create your own email infrastructure, the way you want it to work.*
 
-<img scr="https://cms.elasticemail.com/wp-content/themes/elasticemail/img/email-api/documentation.svg"><br>
+![Api](https://cms.elasticemail.com/wp-content/themes/elasticemail/img/email-api/documentation.svg)<br>
 API documentation
 <br><p>Our comprehensive documentation coupled with code samples will help you integrate your software with our email delivery platform without a hassle.</p>
-<img scr="https://cms.elasticemail.com/wp-content/themes/elasticemail/img/email-api/api.svg"><br>API libraries
+![Lib](https://cms.elasticemail.com/wp-content/themes/elasticemail/img/email-api/api.svg)<br>API libraries
 <br><p>Thanks to support for 11 different programming languages and frameworks, integrating your software with Elastic Email should be a simple and efficient process.</p>
+
+
+![screenshot](https://raw.githubusercontent.com/sanjayengineer121/Mail-Api/main/integrate_desk.webp)
