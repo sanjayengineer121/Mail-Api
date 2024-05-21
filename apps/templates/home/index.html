@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+  <title>Email Marketing And Pramotion Api</title>
+  <link href="https://assets.codepen.io/344846/style.css" rel="stylesheet"><link rel="stylesheet" href="static/style.css">
+   
+   
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-sm">
+  <div class="bg-white dark:bg-gray-900 dark:border-gray-800 w-20 flex-shrink-0 border-r border-gray-200 flex-col hidden sm:flex">
+    <div class="h-16 text-blue-500 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+        <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/>
+        <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/>
+      </svg>
+    </div>
+    <div class="flex mx-auto flex-grow mt-4 flex-col text-gray-400 space-y-4">
+      <a href="/"><button class="h-10 w-12 dark:text-gray-500 rounded-md flex items-center justify-center">
+        <svg viewBox="0 0 24 24" class="h-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg> 
+      </button></a>
+     
+    </div>
+  </div>
+  <div class="flex-grow overflow-hidden h-full flex flex-col">
+    <div class="h-16 lg:flex w-full border-b border-gray-200 dark:border-gray-800 hidden px-10">
+      <div class="flex h-full text-gray-600 dark:text-gray-400">
+        <a href="#" class="cursor-pointer h-full border-b-2 border-transparent inline-flex items-center mr-8">Email Marketing And Pramotion Api</a>
+      </div>
+      <div class="ml-auto flex items-center space-x-7">
+        <a href="/logout"><button class="h-8 px-3 rounded-md shadow text-white bg-blue-500">Logout</button></a>
+
+        <button class="flex items-center">
+          <span class="relative flex-shrink-0">
+            <img class="w-7 h-7 rounded-full" src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" alt="profile" />
+            <span class="absolute right-0 -mb-0.5 bottom-0 w-2 h-2 rounded-full bg-green-500 border border-white dark:border-gray-900"></span>
+          </span>
+          <span class="ml-2">{{current_user}}</span>
+          <svg viewBox="0 0 24 24" class="w-4 ml-1 flex-shrink-0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="flex-grow flex overflow-x-hidden">
+      <div class="xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5">
+        <div class="text-xs text-gray-400 tracking-wider">Email Marketing</div>
+        <div class="relative mt-2">
+          <form action="/emailmarketing" method="post" enctype="multipart/form-data">
+            <input class="input100" type="file" name="emaildata" accept=".csv"> 
+            <br>
+            <select name="searchcontent" class="input100">
+              {% for item in cuslist %}
+                <option value="{{ item['email'] }}">{{ item['email'] }}</option>
+              {% endfor %}
+            </select>
+            <br>
+            <button class="login100-form-btn" type="submit">
+              Pramote
+            </button>
+          </form>
+
+        </div>
+        <div class="space-y-4 mt-3">
+          
+        </div>
+      </div>
+      <div class="flex-grow bg-white dark:bg-gray-900 overflow-y-auto">
+        <div class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
+          <div class="flex w-full items-center">
+            <div class="flex items-center text-3xl text-gray-900 dark:text-white">
+              <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" class="w-12 mr-4 rounded-full" alt="profile" />
+              {{current_user}}
+            </div>
+            <div class="ml-auto sm:flex hidden items-center justify-end">
+              
+              <button id="myBtn" class="login100-form-btn">Add Your Email & Password</button>
+
+                  <!-- The Modal -->
+                  <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <body>
+                        <head>
+                          <meta charset="UTF-8">
+                          <meta name="viewport" content="width=device-width, initial-scale=1">
+                          <link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+
+                        <!--===============================================================================================-->
+                          <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+                        <!--===============================================================================================-->
+                          <link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+                        <!--===============================================================================================-->	
+                          <link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+                        <!--===============================================================================================-->
+                          <link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+                        <!--===============================================================================================-->
+                          <link rel="stylesheet" type="text/css" href="static/css/util.css">
+                          <link rel="stylesheet" type="text/css" href="static/css/main.css">
+                        <!--===============================================================================================-->
+                        </head>
+                        
+                        <div class="wrap-login100">
+                          <div class="login100-pic js-tilt" data-tilt>
+                            <img src="static/images/img-01.png" alt="IMG">
+                          </div>
+                  
+                          <form class="login100-form validate-form" action="/saveemail" method="post">
+                            <span class="login100-form-title">
+                              Member Login
+                            </span>
+                  
+                            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                              <input class="input100" type="text" name="email" placeholder="Email">
+                              <span class="focus-input100"></span>
+                              <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                              </span>
+                            </div>
+                  
+                            <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                              <input class="input100" type="password" name="password" placeholder="Password">
+                              <span class="focus-input100"></span>
+                              <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                              </span>
+                            </div>
+                            
+                            <div class="container-login100-form-btn">
+                              <button class="login100-form-btn" type="submit">
+                                Save Email
+                              </button>
+                            </div>
+                            
+                  
+                            <div class="text-center p-t-12">
+                              
+                            </div>
+                  
+                            <div class="text-center p-t-136">
+                              <a href="https://myaccount.google.com/lesssecureapps" target="_blank"><button class="login100-form-btn" type="button">
+                                Enable Less Secure apps
+                              </button>
+                            </a>
+                            </div>
+                          </form>
+                        </div>
+                        
+                        
+                      
+                        
+                      <!--===============================================================================================-->	
+                        <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="static/vendor/bootstrap/js/popper.js"></script>
+                        <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="static/vendor/select2/select2.min.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="static/vendor/tilt/tilt.jquery.min.js"></script>
+                        <script >
+                          $('.js-tilt').tilt({
+                            scale: 1.1
+                          })
+                        </script>
+                      <!--===============================================================================================-->
+                        <script src="static/js/main.js"></script>
+                      
+                      </body>
+                    </div>
+
+                  </div>
+
+                  <style>
+                    .modal {
+                      display: none; /* Hidden by default */
+                      position: fixed; /* Stay in place */
+                      z-index: 1; /* Sit on top */
+                      left: 0;
+                      top: 0;
+                      width: 100%; /* Full width */
+                      height: 100%; /* Full height */
+                      overflow: auto; /* Enable scroll if needed */
+                      background-color: rgb(0,0,0); /* Fallback color */
+                      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                    }
+                    
+                    /* Modal Content/Box */
+                    .modal-content {
+                      background-color: #fefefe;
+                      margin: 15% auto; /* 15% from the top and centered */
+                      padding: 20px;
+                      border: 1px solid #888;
+                      width: 80%; /* Could be more or less, depending on screen size */
+                    }
+                    
+                    /* The Close Button */
+                    .close {
+                      color: #aaa;
+                      float: right;
+                      font-size: 28px;
+                      font-weight: bold;
+                    }
+                    
+                    .close:hover,
+                    .close:focus {
+                      color: black;
+                      text-decoration: none;
+                      cursor: pointer;
+                    }
+                  </style>
+                  <script>
+                    var modal = document.getElementById("myModal");
+
+                  // Get the button that opens the modal
+                  var btn = document.getElementById("myBtn");
+
+                  // Get the <span> element that closes the modal
+                  var span = document.getElementsByClassName("close")[0];
+
+                  // When the user clicks on the button, open the modal
+                  btn.onclick = function() {
+                    modal.style.display = "block";
+                  }
+
+                  // When the user clicks on <span> (x), close the modal
+                  span.onclick = function() {
+                    modal.style.display = "none";
+                  }
+
+                  // When the user clicks anywhere outside of the modal, close it
+                  window.onclick = function(event) {
+                    if (event.target == modal) {
+                      modal.style.display = "none";
+                    }
+                  }
+                  </script>
+            </div>
+            <div class="ml-auto sm:flex hidden items-center justify-end">
+             
+              <a href="{{download_data}}"> <button class="login100-form-btn" type="submit">
+                Download Sample Data
+              </button></a>
+              
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 sm:mt-7 mt-4">
+            <a href="#" class="px-3 border-b-2 border-blue-500 text-blue-500 dark:text-white dark:border-white pb-1.5">All</a>
+            
+          </div>
+        </div>
+        <div class="sm:p-7 p-4">
+          <div class="flex w-full items-center mb-7">
+            
+            <a href="#"><button class="inline-flex items-center h-8 pl-2.5 pr-2 rounded-md shadow text-gray-700 dark:text-gray-400 dark:border-gray-800 border border-gray-200 leading-none py-0">
+              Filter by time
+              <svg viewBox="0 0 24 24" class="w-4 ml-1.5 text-gray-400 dark:text-gray-600" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button></a>
+            
+          </div>
+          <table class="w-full text-left">
+            <thead>
+              <tr class="text-gray-400">
+                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Email</th>
+                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Subjects</th>
+                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">messages</th>
+                <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Status</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600 dark:text-gray-100">
+              {% for TODO in data %}
+              <tr>
+               
+                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                  <div class="flex items-center">
+                    <img class="w-7 h-7 mr-2.5 border border-gray-200 dark:border-gray-800 rounded-full" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="profile" />
+
+                    {{ TODO[0] }}
+                  </div>
+                </td>
+                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                  <div class="flex items-center">
+                    {{ TODO[1] }}
+                  </div>
+                </td>
+                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">{{ TODO[2] }}</td>
+                {% if TODO[3] == 'sent' %}
+              <td><span class="text-xs py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md" >{{ TODO[3] }}</span></td>
+                {% else %}
+                    <td><span class="text-xs py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-yellow-600 rounded-md">{{ TODO[3] }}</span></td>
+                {% endif %}
+
+                
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

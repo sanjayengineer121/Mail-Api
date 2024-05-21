@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Dashboard UI</title>
+  <link href="https://assets.codepen.io/344846/style.css" rel="stylesheet"><link rel="stylesheet" href="static/style.css">
+   
+   
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-sm">
+  <div class="bg-white dark:bg-gray-900 dark:border-gray-800 w-20 flex-shrink-0 border-r border-gray-200 flex-col hidden sm:flex">
+    <div class="h-16 text-blue-500 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+        <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/>
+        <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/>
+      </svg>
+    </div>
+    <div class="flex mx-auto flex-grow mt-4 flex-col text-gray-400 space-y-4">
+      <a href="/"><button class="h-10 w-12 dark:text-gray-500 rounded-md flex items-center justify-center">
+        <svg viewBox="0 0 24 24" class="h-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg> 
+      </button></a>
+      <a href="/add"><button class="h-10 w-12 dark:text-gray-500 rounded-md flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"/>
+          <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/>
+          <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"/>
+        </svg>
+      </button></a>
+      <a href="/profile"><button class="h-10 w-12 dark:text-gray-500 rounded-md flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+        </svg>
+      </button></a>
+      
+    </div>
+  </div>
+  <div class="flex-grow overflow-hidden h-full flex flex-col">
+    <div class="h-16 lg:flex w-full border-b border-gray-200 dark:border-gray-800 hidden px-10">
+      <div class="flex h-full text-gray-600 dark:text-gray-400">
+        <a href="#" class="cursor-pointer h-full border-b-2 border-transparent inline-flex items-center mr-8">TODO LIST MANAGENET</a>
+      </div>
+      <div class="ml-auto flex items-center space-x-7">
+        <a href="/logout"><button class="h-8 px-3 rounded-md shadow text-white bg-blue-500">Logout</button></a>
+
+        <button class="flex items-center">
+          <span class="relative flex-shrink-0">
+            <img class="w-7 h-7 rounded-full" src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" alt="profile" />
+            <span class="absolute right-0 -mb-0.5 bottom-0 w-2 h-2 rounded-full bg-green-500 border border-white dark:border-gray-900"></span>
+          </span>
+          <span class="ml-2">{{current_user}}</span>
+          <svg viewBox="0 0 24 24" class="w-4 ml-1 flex-shrink-0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="flex-grow flex overflow-x-hidden">
+      <div class="xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5">
+        <div class="text-xs text-gray-400 tracking-wider">USERS</div>
+        <div class="relative mt-2">
+          
+        </div>
+        <div class="space-y-4 mt-3">
+          
+          <button class="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-2 ring-blue-500 focus:outline-none">
+            <div class="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
+              <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" class="w-7 h-7 mr-2 rounded-full" alt="profile" />
+              {{current_user}}
+            </div>
+            <div class="flex items-center w-full">
+              <div class="text-xs py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md"></div>
+              
+            </div>
+          </button>
+          
+        </div>
+      </div>
+      <div class="flex-grow bg-white dark:bg-gray-900 overflow-y-auto">
+        <div class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
+          <div class="flex w-full items-center">
+            <div class="flex items-center text-3xl text-gray-900 dark:text-white">
+              <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" class="w-12 mr-4 rounded-full" alt="profile" />
+              {{current_user}}
+            </div>
+            <div class="ml-auto sm:flex hidden items-center justify-end">
+              
+              
+            </div>
+          </div>
+        </div>
+        <div class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
+          <div class="flex w-full items-center">
+            <div class="flex items-center text-3xl text-gray-900 dark:text-white ">
+              Profile
+            </div>
+            
+          </div>
+        </div>
+
+        
+        <div id="card">
+          <h1>{{current_user}}</h1>
+          <div class="image-crop">
+            <img id="avatar" src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512"></img>
+          </div>
+          <div id="bio">
+            <p>Hello, my name is {{current_user}}! 
+              Software Developer with 1.5+ years of experience preparing flawless presentations, assembling facility reports, and maintaining the Software Bugs and New Customers. I am quick learner and swiftly adoptable in different environment. Looking to leverage my knowledge and experience into a role as Software Engineer II.. </p>
+          </div>
+          <div id="stats">
+            <div class="col">
+              <p class="stat">108</p>
+              <p class="label">Posts</p>
+            </div>
+                <div class="col">
+              <p class="stat">457</p>
+              <p class="label">Followers</p>
+            </div>
+                <div class="col">
+              <p class="stat">229</p>
+              <p class="label">Following</p>
+            </div>
+          </div>
+          <div id="buttons">
+            <button>Follow</button>
+            <button id="msg">Message</button>
+          </div>
+          
+        </div>
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-gray-400">
+              <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Task</th>
+              <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Created By</th>
+              <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">Description</th>
+              <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Status</th>
+              <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Action</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-600 dark:text-gray-100">
+            {% for TODO in todo_details %}
+            <tr>
+             
+              <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                <div class="flex items-center">
+                  
+                  {{ TODO.title }}
+                </div>
+              </td>
+              <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                <div class="flex items-center">
+                  <img class="w-7 h-7 mr-2.5 border border-gray-200 dark:border-gray-800 rounded-full" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="profile" />
+                  {{ TODO.Created }}
+                </div>
+              </td>
+              <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">{{ TODO.description }}</td>
+              {% if TODO.status == 'Done' %}
+              <td><span class="text-xs py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md" >{{ TODO.status }}</span></td>
+                {% else %}
+                    <td><span class="text-xs py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-yellow-600 rounded-md">{{ TODO.status }}</span></td>
+                {% endif %}
+                
+                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                <a href="/update/{{ TODO.title }}"><button class="h-4 px-4 rounded-md shadow text-white"
+                  style=
+                "background-color: green; 
+                color: white;" onclick="colorFn(this)">Change Status</button></a>
+
+                <a href="/delete/{{ TODO.title }}"><button class="h-8 px-3 rounded-md shadow text-white"
+                  style=
+                "background-color: red; 
+                color: white;" onclick="colorFn(this)">Delete Task</button></a>
+              </td>
+              
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+          <style>
+            * {
+              padding: 0;
+              margin: 0;
+            }
+            
+            html,body {
+              font-family: tahoma, sans-serif;
+              color: #E6EBEE;
+            }
+            
+            #card {
+              height: auto;
+              width: 350px;
+              margin: 10vh auto;
+              border-radius: 25px;
+              padding-bottom: 1px;
+              box-shadow: 2px 2px 5px #4069E2;
+            }
+            
+            h1 {
+              color: white;
+              text-align: center;
+              width: 100%;
+              background-color: #E6EBEE;
+              border-radius: 25px 25px 0 0;
+              color: #393B45;
+              padding: 30px 0;
+              font-weight: 800;
+              margin: 0;
+            }
+            
+            .image-crop {
+              display: block;
+              position: relative;
+              width: 150px;
+              height: 150px;
+              margin: 0 auto;
+              margin-top: 30px;
+              overflow: hidden;
+              border-radius: 50%;
+              box-shadow: 1px 1px 5px #4069E2;
+            }
+            
+           
+            
+            #bio {
+              display: block;
+              margin: 30px auto;
+              width: 280px;
+              height: auto;
+            }
+            
+            #bio p {
+              color: #E6EBEE;
+              font-weight: lighter;
+              font-size: 15px;
+              text-align: justify;
+            }
+            
+            #stats {
+              display: flex;
+              flex-direction: row;
+              height: auto;
+              width: 280px;
+              justify-content: space-between;
+              align-items: center;
+              margin: 0 auto;
+              font-weight: 500;
+            }
+            
+            .col {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              width: auto;
+            }
+            
+            .stat {
+              font-size: 25px;
+              margin: 0;
+            }
+            
+            .label {
+              margin: 0;
+            }
+            
+            #buttons {
+              display: flex;
+              margin: 0 auto;
+              justify-content: space-between;
+              width: 280px;
+            }
+            
+            button {
+              display: block;
+              position: relative;
+              padding: 10px 0;
+              width: 130px;
+              margin: 30px 0;
+              border-radius: 25px;
+              border: none;
+              font-size: 20px;
+              letter-spacing: 0.2px;
+              font-weight: 500;
+              color: #E6EBEE;
+            }
+            
+            button:focus {
+              display: none;
+            }
+            
+            button:hover {
+              transform: scale(1.03);
+              cursor: pointer;
+              transition: all 0.2s ease-in-out;
+            }
+            
+            #msg{
+              background-color: #E6EBEE;
+              color: #393B45;
+            }
+          </style>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!-- partial -->
+  
+</body>
+</html>

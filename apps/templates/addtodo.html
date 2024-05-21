@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Dashboard UI</title>
+  <link href="https://assets.codepen.io/344846/style.css" rel="stylesheet"><link rel="stylesheet" href="static/style.css">
+   
+   
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-sm">
+  <div class="bg-white dark:bg-gray-900 dark:border-gray-800 w-20 flex-shrink-0 border-r border-gray-200 flex-col hidden sm:flex">
+    <div class="h-16 text-blue-500 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+        <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/>
+        <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/>
+      </svg>
+    </div>
+    <div class="flex mx-auto flex-grow mt-4 flex-col text-gray-400 space-y-4">
+      <a href="/"><button class="h-10 w-12 dark:text-gray-500 rounded-md flex items-center justify-center">
+        <svg viewBox="0 0 24 24" class="h-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg> 
+      </button></a>
+      <a href="/add"><button class="h-10 w-12 dark:text-gray-500 rounded-md flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"/>
+          <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/>
+          <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"/>
+        </svg>
+      </button></a>
+      <a href="/profile"><button class="h-10 w-12 dark:text-gray-500 rounded-md flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+        </svg>
+      </button></a>
+      
+    </div>
+  </div>
+  <div class="flex-grow overflow-hidden h-full flex flex-col">
+    <div class="h-16 lg:flex w-full border-b border-gray-200 dark:border-gray-800 hidden px-10">
+      <div class="flex h-full text-gray-600 dark:text-gray-400">
+        <a href="#" class="cursor-pointer h-full border-b-2 border-transparent inline-flex items-center mr-8">TODO LIST MANAGENET</a>
+      </div>
+      <div class="ml-auto flex items-center space-x-7">
+        <a href="/logout"><button class="h-8 px-3 rounded-md shadow text-white bg-blue-500">Logout</button></a>
+
+        <button class="flex items-center">
+          <span class="relative flex-shrink-0">
+            <img class="w-7 h-7 rounded-full" src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" alt="profile" />
+            <span class="absolute right-0 -mb-0.5 bottom-0 w-2 h-2 rounded-full bg-green-500 border border-white dark:border-gray-900"></span>
+          </span>
+          <span class="ml-2">{{current_user}}</span>
+          <svg viewBox="0 0 24 24" class="w-4 ml-1 flex-shrink-0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="flex-grow flex overflow-x-hidden">
+      <div class="xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5">
+        <div class="text-xs text-gray-400 tracking-wider">USERS</div>
+        <div class="relative mt-2">
+          
+        </div>
+        <div class="space-y-4 mt-3">
+          {% for userlist in userlistd %}
+          <button class="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-2 ring-blue-500 focus:outline-none">
+            <div class="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
+              <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" class="w-7 h-7 mr-2 rounded-full" alt="profile" />
+              {{userlist[0]}}
+            </div>
+            <div class="flex items-center w-full">
+              <div class="text-xs py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md">{{userlist[1]}}</div>
+              
+            </div>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="flex-grow bg-white dark:bg-gray-900 overflow-y-auto">
+        <div class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
+          <div class="flex w-full items-center">
+            <div class="flex items-center text-3xl text-gray-900 dark:text-white">
+              <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" class="w-12 mr-4 rounded-full" alt="profile" />
+              {{current_user}}
+            </div>
+            <div class="ml-auto sm:flex hidden items-center justify-end">
+              
+              
+            </div>
+          </div>
+        </div>
+        <div class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
+          <div class="flex w-full items-center">
+            <div class="flex items-center text-3xl text-gray-900 dark:text-white ">
+              To-Do List
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="sm:p-7 p-4">
+          
+          
+        
+        <div>
+          <form class="form" action="/addtodo" method="post">
+            <div class="form__title">Enter To-do Information</div>
+            <p class="form__desc">
+              "todo" use case typically refers to a scenario where users can create, manage, and track tasks or items they need to do. This concept is commonly used in task management applications, productivity tools, project management software, and similar applications.
+            </p>
+            <div class="form__item">
+              <label for="givennames" class="form__label">To-Do Title</label>
+              <input type="text" class="form__input" name="title" id="givennames" placeholder="Enter To-Do title...">
+              <span class="form__error">A sample error message</span>
+            </div>
+           
+            <div class="form__item">
+              <label for="expirydate" class="form__label">Remonder Date</label>
+              <input type="date" class="form__input form__input--small" name="expirydate" id="expirydate" placeholder="Enter an expiration date">
+              <span class="form__error">A sample error message</span>
+            </div>
+            <div class="form__item">
+              <label for="message" class="form__label">To-Do Description</label>
+              <textarea maxlength="500" class="form__input" name="Work" id="message" placeholder="To-Do Work Desc..."></textarea>
+              <span class="form__error">A sample error message</span>
+            </div>
+            <div class="form__item">
+              <button class="h-8 px-3 rounded-md shadow text-white bg-blue-500" type="submit">AddTodo</button>     
+            <hr>
+            </div>
+          </form>
+              
+        </div>
+        <style>
+          @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap");
+
+            .form {
+              font-family: "Source Sans Pro", sans-serif;
+              font-size: 16px;
+            }
+
+            .form * {
+              box-sizing: border-box;
+              line-height: 1.5;
+            }
+
+            .form__title {
+              font-size: 2em;
+              font-weight: 600;
+            }
+
+            .form__item {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .form__item > * {
+              align-self: flex-start;
+            }
+
+            .form__label {
+              font-weight: 600;
+              padding: 10px 0;
+            }
+
+            .form__input {
+              -webkit-appearance: none;
+              color:red;
+
+              width: 100%;
+              max-width: 425px;
+
+              /* Fix for Safari/iOS date fields */
+              min-height: calc(0.9em + (0.8em * 2) + 0.6em);
+
+              padding: 0.8em;
+              font-size: 0.9em;
+              font-family: "Source Sans Pro", sans-serif;
+
+              outline: none;
+              border: 1px solid #dddddd;
+              border-radius: 4px;
+              background: white;
+              transition: background 0.25s, border-color 0.25s, color 0.25s;
+            }
+
+            .form__input:focus {
+              background: yellow;
+            }
+
+            .form__input::placeholder {
+              color: red;
+            }
+
+            .form__input--error {
+              color: #d50000;
+              background: #fff8f8;
+              border-color: #d50000;
+            }
+
+            .form__input--error::placeholder {
+              color: #ffbfbf;
+            }
+
+            .form__error {
+              padding-top: 10px;
+              color: #d50000;
+              font-size: 0.9em;
+              visibility: hidden;
+            }
+
+            .form__input--error + .form__error {
+              visibility: visible;
+            }
+
+            .form__input--small {
+              max-width: 250px;
+            }
+
+            textarea.form__input {
+              resize: none;
+              min-height: 200px;
+            }
+
+            .form__btn {
+              font-family: "Source Sans Pro", sans-serif;
+              font-weight: 600;
+              font-size: 1.1em;
+              padding: 10px 16px;
+              margin: 10px 0;
+
+              color: #ffffff;
+              background: #14b64a;
+              border: 2px solid #0fa942;
+              border-radius: 5px;
+
+              cursor: pointer;
+              outline: none;
+            }
+
+            .form__btn:active {
+              background: #0fa942;
+            }
+
+        
+        </style>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".form__input").forEach(function(input) {
+              input.addEventListener("input", function() {
+                input.className = input.className.replace(/form__input--error ?/, "");
+              });
+            });
+          });
+          
+        </script>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>
